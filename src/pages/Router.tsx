@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router-dom";
 
 // Components
 import Home from "./Home";
-import Login from "./Login";
+import SignUp from "./SignUp";
 
 const Router = () => {
   const [isInLogged, setisInLogged] = useState(false);
@@ -17,7 +17,7 @@ const Router = () => {
         </Routes>
       ) : (
         <Routes>
-          <Route path="/" element={<Login />} />
+          <Route path="/" element={<SignUp />} />
         </Routes>
       )}
     </>
