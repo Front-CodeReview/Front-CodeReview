@@ -1,9 +1,6 @@
 import * as S from "./styled";
 
-const Button = (props: {
-  text: string;
-  bgColor: "black" | "grey" | "white";
-}) => {
+const Button = (props: { text: string; bgColor: "black" | "grey" }) => {
   const { text, bgColor } = props;
   return (
     <>
