@@ -1,5 +1,11 @@
-const Home = () => {
-  return <div>홈 (루트) 페이지 입니다.</div>;
+import Main from "../components/organisms/Main";
+
+type HomePropsType = {
+  setIsInLogged: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+const Home = (props: HomePropsType) => {
+  return <Main setIsInLogged={props.setIsInLogged} />;
 };
 
 export default Home;

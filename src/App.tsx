@@ -1,10 +1,12 @@
-// Components
 import Router from "./pages/Router";
+import * as S from "./styled";
 
 const App = () => {
   return (
     <>
-      <Router />
+      <S.AppContainer>
+        <Router />
+      </S.AppContainer>
     </>
   );
 };
