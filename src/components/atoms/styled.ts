@@ -18,6 +18,7 @@ export const InputLabelText = styled.div`
 export const DefaultButton = styled.button<{
   colorType: "black" | "grey";
 }>`
+  width: 100%;
   background-color: ${(props) =>
     props.colorType === "black" ? "#222" : "#ddd"};
   color: ${(props) => (props.colorType === "black" ? "#fff" : "#222")};
