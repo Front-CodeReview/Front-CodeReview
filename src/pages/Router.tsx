@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router-dom";
 
 // pages
 import Home from "./Home";
-import SignUp from "./SignUp";
+import SignUp from "./Auth/SignUp";
 
 const Router = () => {
   const [isInLogged, setisInLogged] = useState(true);

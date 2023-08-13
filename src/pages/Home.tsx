@@ -8,6 +8,7 @@ const Wrapper = styled.div`
   width: 100%;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: #fafafa;
@@ -15,9 +16,14 @@ const Wrapper = styled.div`
 
 const Home = () => {
   const pathMove = usePathMove();
+  const userLogout = () => {
+    pathMove("/singup");
+    localStorage.removeItem("join");
+  };
+
   return (
     <Wrapper>
-      <div onClick={() => pathMove("/signup")}>로그인 하기</div>
+      <div onClick={userLogout}>로그아웃</div>
     </Wrapper>
   );
 };
