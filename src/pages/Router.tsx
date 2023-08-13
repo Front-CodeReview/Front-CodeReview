@@ -7,7 +7,7 @@ import Home from "./Home";
 import SignUp from "./SignUp";
 
 const Router = () => {
-  const [isInLogged, setisInLogged] = useState(true);
+  const [isInLogged, setisInLogged] = useState(false);
 
   return (
     <>

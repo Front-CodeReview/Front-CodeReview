@@ -13,29 +13,76 @@ import Input from "../atoms/Input";
 import LabelText from "../atoms/LabelText";
 import TitleTex from "../atoms/TitleText";
 import InputAndButton from "../molecules/InputAndButton";
+import { useForm } from "react-hook-form";
 import * as S from "./styled";
+import { useEffect } from "react";
 
-type SignUpFromPropsType = {
-  checkValiable?: any; // TODO
-  submitRegister: any; // TODO
-};
+const SignUpForm = () => {
+  const { getValues, watch, register, setValue } = useForm();
+  const checkEmailValiable = () => {
+    // 이메일 check
+    const emailData = watch("userEmail");
+    console.log(emailData);
+  };
 
-const SignUpForm = (props: SignUpFromPropsType) => {
-  const { submitRegister, checkValiable } = props;
+  const submitFormData = () => {
+    // 전체 데이터 체크
+    checkEmailValiable();
+  };
+
+  useEffect(() => {
+    console.log(getValues());
+  }, [watch]);
   return (
     <S.Container>
-      <TitleTex>{"회원가입"}</TitleTex>
-      <LabelText>{"이름"}</LabelText>
-      <Input type={"text"} />
-      <LabelText>{"이메일"}</LabelText>
-      <InputAndButton onClick={checkValiable} />
-      <LabelText>{"비밀번호"}</LabelText>
-      <Input type={"password"} />
-      <LabelText>{"비밀번호 확인"}</LabelText>
-      <Input type={"password"} />
-      <S.SignUpButtonContainer>
-        <Button text={"회원가입"} bgColor={"black"} onClick={submitRegister} />
-      </S.SignUpButtonContainer>
+      <form>
+        <TitleTex>{"회원가입"}</TitleTex>
+        <LabelText>{"이름"}</LabelText>
+        <Input
+          type={"text"}
+          name={"userName"}
+          register={register}
+          getValues={getValues}
+          setValue={setValue}
+          watch={watch}
+        />
+        <LabelText>{"이메일"}</LabelText>
+        <InputAndButton
+          type={"button"}
+          name={"userEmail"}
+          onClick={checkEmailValiable}
+          register={register}
+          getValues={getValues}
+          setValue={setValue}
+          watch={watch}
+        />
+        <LabelText>{"비밀번호"}</LabelText>
+        <Input
+          type={"password"}
+          name={"userPwd"}
+          register={register}
+          getValues={getValues}
+          setValue={setValue}
+          watch={watch}
+        />
+        <LabelText>{"비밀번호 확인"}</LabelText>
+        <Input
+          type={"password"}
+          name={"checkUserPwd"}
+          register={register}
+          getValues={getValues}
+          setValue={setValue}
+          watch={watch}
+        />
+        <S.SignUpButtonContainer>
+          <Button
+            type={"submit"}
+            text={"회원가입"}
+            bgColor={"black"}
+            onClick={submitFormData}
+          />
+        </S.SignUpButtonContainer>
+      </form>
     </S.Container>
   );
 };

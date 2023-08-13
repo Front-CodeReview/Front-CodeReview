@@ -2,13 +2,14 @@ import * as S from "./styled";
 
 const Button = (props: {
   text: string;
+  type: "button" | "submit" | "reset";
   bgColor: "black" | "grey";
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }) => {
-  const { text, bgColor, onClick } = props;
+  const { type, text, bgColor, onClick } = props;
   return (
     <>
-      <S.DefaultButton onClick={onClick} colorType={bgColor}>
+      <S.DefaultButton type={type} onClick={onClick} colortype={bgColor}>
         {text}
       </S.DefaultButton>
     </>

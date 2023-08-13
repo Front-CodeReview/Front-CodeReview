@@ -16,12 +16,12 @@ export const InputLabelText = styled.div`
 
 // button
 export const DefaultButton = styled.button<{
-  colorType: "black" | "grey";
+  colortype: "black" | "grey";
 }>`
   width: 100%;
   background-color: ${(props) =>
-    props.colorType === "black" ? "#222" : "#ddd"};
-  color: ${(props) => (props.colorType === "black" ? "#fff" : "#222")};
+    props.colortype === "black" ? "#222" : "#ddd"};
+  color: ${(props) => (props.colortype === "black" ? "#fff" : "#222")};
   font-weight: 700;
   padding: 1rem;
   border: 0;
