@@ -33,11 +33,27 @@ const SignUpForm = (props: SignUpFormPropsType) => {
   const emailRegex = EMAIL_CHECK;
   const pwdRegex = PASSWORD_CHECK;
 
+  const setLocalData = () => {
+    const userData = {
+      name: getValues("userName"),
+      phone: getValues("userPhoneNumber"),
+      password: getValues("userPwd"),
+      email: getValues("userEmail"),
+    };
+
+    const jsonUserData = JSON.stringify(userData);
+
+    return localStorage.setItem("loginData", jsonUserData);
+  };
+
   const submitData = () => {
     // 등록 후
     if (!isEmailPass) {
       return alert("이메일을 확인해주세요.");
     }
+
+    alert("회원가입을 축하합니다.");
+    setLocalData();
     return setIsInLogged(true);
   };
 
@@ -75,8 +91,8 @@ const SignUpForm = (props: SignUpFormPropsType) => {
     if (localStorage.getItem("userEmail")?.includes(getValues("userEmail"))) {
       return alert("중복된 이메일입니다. 다시 입력해주세요.");
     }
-
-    return setIsEmailPass(true);
+    setIsEmailPass(true);
+    return true;
   };
 
   const checkUserData = (
@@ -88,7 +104,11 @@ const SignUpForm = (props: SignUpFormPropsType) => {
       return alert("이름을 3자이상 입력해주세요.");
     }
 
-    if (!checkPwdVariable()) {
+    if (!getValues("userPhoneNumber")) {
+      return alert("휴대폰 번호를 입력해주세요.");
+    }
+
+    if (!checkEmailVariable()) {
       return false;
     }
 
