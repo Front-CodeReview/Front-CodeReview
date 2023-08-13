@@ -125,7 +125,7 @@ const SignUpForm = (props: SignUpFormPropsType) => {
 
   return (
     <S.Container>
-      <form>
+      <S.Form>
         <TitleTex>{"회원가입"}</TitleTex>
         <LabelText>{"이름"}</LabelText>
         <Input
@@ -182,7 +182,7 @@ const SignUpForm = (props: SignUpFormPropsType) => {
             onClick={(e) => checkUserData(e)}
           />
         </S.SignUpButtonContainer>
-      </form>
+      </S.Form>
     </S.Container>
   );
 };
