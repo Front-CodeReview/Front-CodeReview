@@ -3,13 +3,17 @@ import TextContents from "../atoms/TextContents";
 import TitleTex from "../atoms/TitleText";
 import * as S from "./styled";
 
-const Main = () => {
+type MainPropsType = {
+  setIsInLogged: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+const Main = (props: MainPropsType) => {
   return (
     <S.Container>
       <TitleTex>{"홈"}</TitleTex>
       <TextContents />
       <S.SignUpButtonContainer>
-        <Button text={"로그아웃"} bgColor={"black"} />
+        <Button text={"로그아웃"} bgColor={"black"} type={"button"} />
       </S.SignUpButtonContainer>
     </S.Container>
   );

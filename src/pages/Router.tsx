@@ -7,17 +7,17 @@ import Home from "./Home";
 import SignUp from "./SignUp";
 
 const Router = () => {
-  const [isInLogged, setisInLogged] = useState(false);
+  const [isInLogged, setIsInLogged] = useState(false);
 
   return (
     <>
       {isInLogged ? (
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home setIsInLogged={setIsInLogged} />} />
         </Routes>
       ) : (
         <Routes>
-          <Route path="/" element={<SignUp />} />
+          <Route path="/" element={<SignUp setIsInLogged={setIsInLogged} />} />
         </Routes>
       )}
     </>

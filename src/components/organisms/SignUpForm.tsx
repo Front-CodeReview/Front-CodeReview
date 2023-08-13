@@ -18,7 +18,10 @@ import * as S from "./styled";
 import { CONSTANTS } from "../../constants";
 import { useState } from "react";
 
-const SignUpForm = () => {
+type SignUpFormPropsType = {
+  setIsInLogged: React.Dispatch<React.SetStateAction<boolean>>;
+};
+const SignUpForm = (props: SignUpFormPropsType) => {
   const [isEmailPass, setIsEmailPass] = useState(false);
 
   const { getValues, watch, register, setValue } = useForm();
