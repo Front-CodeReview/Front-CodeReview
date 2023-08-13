@@ -12,12 +12,13 @@ import * as S from "./styled";
 type InputAndButtonPropsType = {
   type: "button" | "submit" | "reset";
   name: string;
-  onClick: any; // TODO
+  onClick: () => void;
   register: UseFormRegister<FieldValues>;
   watch: UseFormWatch<FieldValues>;
   getValues?: UseFormGetValues<FieldValues>;
   setValue?: UseFormSetValue<FieldValues>;
 };
+
 // 버튼과 함께 쓰는 인풋 컴포넌트
 const InputAndButton = (props: InputAndButtonPropsType) => {
   const {

@@ -25,9 +25,14 @@ const SignUpForm = () => {
     console.log(emailData);
   };
 
-  const submitFormData = () => {
+  const submitFormData = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
     // 전체 데이터 체크
-    checkEmailValiable();
+    if (getValues("userName").length < 3) {
+      return alert("이름을 3자이상 입력해주세요.");
+    }
   };
 
   useEffect(() => {
@@ -79,7 +84,7 @@ const SignUpForm = () => {
             type={"submit"}
             text={"회원가입"}
             bgColor={"black"}
-            onClick={submitFormData}
+            onClick={(e) => submitFormData(e)}
           />
         </S.SignUpButtonContainer>
       </form>
