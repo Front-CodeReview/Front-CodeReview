@@ -28,3 +28,13 @@ export const DefaultButton = styled.button<{
   cursor: pointer;
   border-radius: 8px;
 `;
+
+// titleText
+export const TitleBoldText = styled.div`
+  width: 100%;
+  padding-top: 1rem;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #222;
+`;
