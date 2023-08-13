@@ -1,7 +1,7 @@
 import * as S from "./styled";
 
 const TextContents = () => {
-  const userName = localStorage.getItem("userName");
+  const userName = JSON.parse(localStorage.getItem("loginData") || "").name;
 
   return (
     <S.TextContentsGreatingContainer>
