@@ -16,12 +16,21 @@ export const InputLabelText = styled.div`
 
 // button
 export const DefaultButton = styled.button<{
-  colortype: "black" | "grey";
+  colortype: "black" | "grey" | "hidden";
 }>`
   width: 100%;
   background-color: ${(props) =>
-    props.colortype === "black" ? "#222" : "#ddd"};
-  color: ${(props) => (props.colortype === "black" ? "#fff" : "#222")};
+    props.colortype === "black"
+      ? "#222"
+      : props.colortype === "grey"
+      ? "#ddd"
+      : "#f0f0f0"};
+  color: ${(props) =>
+    props.colortype === "black"
+      ? "#fff"
+      : props.colortype === "grey"
+      ? "#222"
+      : "#cdcdcd"};
   font-weight: 700;
   padding: 1rem;
   border: 0;

@@ -17,6 +17,7 @@ type InputAndButtonPropsType = {
   watch: UseFormWatch<FieldValues>;
   getValues?: UseFormGetValues<FieldValues>;
   setValue?: UseFormSetValue<FieldValues>;
+  isEmailPass?: boolean;
 };
 
 // 버튼과 함께 쓰는 인풋 컴포넌트
@@ -29,6 +30,7 @@ const InputAndButton = (props: InputAndButtonPropsType) => {
     getValues,
     setValue,
     watch,
+    isEmailPass,
   } = props;
   return (
     <>
@@ -40,12 +42,16 @@ const InputAndButton = (props: InputAndButtonPropsType) => {
           setValue={setValue}
           watch={watch}
         />
-        <Button
-          type={type}
-          text={"중복확인"}
-          bgColor={"grey"}
-          onClick={checkValiable}
-        />
+        {isEmailPass ? (
+          <Button text={"중복 확인 완료"} type={"button"} bgColor={"hidden"} />
+        ) : (
+          <Button
+            type={type}
+            text={"중복 확인하기"}
+            bgColor={"grey"}
+            onClick={checkValiable}
+          />
+        )}
       </S.InputAndButtonContainer>
     </>
   );
