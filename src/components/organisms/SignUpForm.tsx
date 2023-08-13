@@ -88,7 +88,11 @@ const SignUpForm = (props: SignUpFormPropsType) => {
       return alert("올바른 이메일을 입력해주세요.");
     }
 
-    if (localStorage.getItem("userEmail")?.includes(getValues("userEmail"))) {
+    const localUserEmail = JSON.parse(
+      localStorage.getItem("loginData") || ""
+    ).email;
+
+    if (localUserEmail === getValues("userEmail")) {
       return alert("중복된 이메일입니다. 다시 입력해주세요.");
     }
     setIsEmailPass(true);
