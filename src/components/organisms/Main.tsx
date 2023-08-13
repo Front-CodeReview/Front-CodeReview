@@ -13,7 +13,12 @@ const Main = (props: MainPropsType) => {
       <TitleTex>{"홈"}</TitleTex>
       <TextContents />
       <S.SignUpButtonContainer>
-        <Button text={"로그아웃"} bgColor={"black"} type={"button"} />
+        <Button
+          text={"로그아웃"}
+          bgColor={"black"}
+          type={"button"}
+          onClick={() => props.setIsInLogged(false)}
+        />
       </S.SignUpButtonContainer>
     </S.Container>
   );

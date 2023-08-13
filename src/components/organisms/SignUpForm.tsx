@@ -22,18 +22,44 @@ type SignUpFormPropsType = {
   setIsInLogged: React.Dispatch<React.SetStateAction<boolean>>;
 };
 const SignUpForm = (props: SignUpFormPropsType) => {
+  const { setIsInLogged } = props;
   const [isEmailPass, setIsEmailPass] = useState(false);
+  const {
+    REGEXP: { EMAIL_CHECK, PASSWORD_CHECK },
+  } = CONSTANTS;
 
   const { getValues, watch, register, setValue } = useForm();
 
-  const emailRegex = CONSTANTS.REGEXP.EMAIL_CHECK;
+  const emailRegex = EMAIL_CHECK;
+  const pwdRegex = PASSWORD_CHECK;
 
   const submitData = () => {
     // 등록 후
     if (!isEmailPass) {
       return alert("이메일을 확인해주세요.");
     }
-    return;
+    return setIsInLogged(true);
+  };
+
+  const checkPwdVariable = () => {
+    const userPwd = getValues("userPwd") as string;
+    if (userPwd.length < 2 || userPwd.length > 20) {
+      return alert(
+        "비밀번호는 특수문자 1개 포함하여 작성해주세요(최소 2자~최대20자)"
+      );
+    }
+
+    if (!pwdRegex.test(userPwd)) {
+      return alert(
+        "비밀번호는 특수문자 1개 포함하여 작성해주세요(최소 2자~최대20자)"
+      );
+    }
+
+    if (!(getValues("checkUserPwd") === userPwd)) {
+      return alert("비밀번호 확인이 일치하지 않습니다. 다시 입력해주세요.");
+    }
+
+    return true;
   };
 
   const checkEmailVariable = () => {
@@ -62,16 +88,12 @@ const SignUpForm = (props: SignUpFormPropsType) => {
       return alert("이름을 3자이상 입력해주세요.");
     }
 
-    if (!getValues("userPwd")) {
-      return alert("비밀번호를 입력해주세요.");
+    if (!checkPwdVariable()) {
+      return false;
     }
 
-    if (!getValues("checkUserPwd")) {
-      return alert("비밀번호 확인을 입력해주세요.");
-    }
-
-    if (!(getValues("checkUserPwd") === getValues("userPwd"))) {
-      return alert("비밀번호가 일치하지 않습니다. 다시 입력해주세요.");
+    if (!checkPwdVariable()) {
+      return false;
     }
 
     return submitData();
