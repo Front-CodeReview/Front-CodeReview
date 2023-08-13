@@ -6,6 +6,14 @@ export const RegisterInput = styled.input`
   border-radius: 8px;
 `;
 
+// label text
+export const InputLabelText = styled.div`
+  padding: 1rem 0;
+  font-weight: 600;
+  font-size: 16px;
+  color: #222;
+`;
+
 // button
 export const DefaultButton = styled.button<{
   colorType: "black" | "grey";
@@ -16,6 +24,6 @@ export const DefaultButton = styled.button<{
   font-weight: 700;
   padding: 1rem;
   border: 0;
-  border-radius: 8px;
   cursor: pointer;
+  border-radius: 8px;
 `;

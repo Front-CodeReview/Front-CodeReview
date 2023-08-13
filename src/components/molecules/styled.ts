@@ -2,14 +2,13 @@ import { styled } from "styled-components";
 
 // input and button container
 export const InputAndButtonContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 80% 20%;
   width: 100%;
 `;
 
 export const InputContainer = styled.div`
-  width: 80%;
+  width: 100%;
 `;
 
 export const ButtonContainer = styled.div`

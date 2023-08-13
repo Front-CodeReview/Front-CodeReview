@@ -7,12 +7,8 @@ const InputAndButton = () => {
   return (
     <>
       <S.InputAndButtonContainer>
-        <S.InputContainer>
-          <Input />
-        </S.InputContainer>
-        <S.ButtonContainer>
-          <Button text={"중복확인"} bgColor={"grey"} />
-        </S.ButtonContainer>
+        <Input />
+        <Button text={"중복확인"} bgColor={"grey"} />
       </S.InputAndButtonContainer>
     </>
   );

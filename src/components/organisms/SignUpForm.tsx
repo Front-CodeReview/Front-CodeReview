@@ -10,11 +10,13 @@
 
 import Button from "../atoms/Button";
 import Input from "../atoms/Input";
+import LabelText from "../atoms/LabelText";
 import InputAndButton from "../molecules/InputAndButton";
 
 const SignUpForm = () => {
   return (
     <>
+      <LabelText>{"이메일"}</LabelText>
       <InputAndButton />
       <Input />
       <Button text={"회원가입"} bgColor={"black"} />
