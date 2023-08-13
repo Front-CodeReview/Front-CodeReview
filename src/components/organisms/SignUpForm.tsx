@@ -112,6 +112,15 @@ const SignUpForm = (props: SignUpFormPropsType) => {
           setValue={setValue}
           watch={watch}
         />
+        <LabelText>{"휴대폰 번호"}</LabelText>
+        <Input
+          type={"number"}
+          name={"userPhoneNumber"}
+          register={register}
+          getValues={getValues}
+          setValue={setValue}
+          watch={watch}
+        />
         <LabelText>{"이메일"}</LabelText>
         <InputAndButton
           type={"button"}
