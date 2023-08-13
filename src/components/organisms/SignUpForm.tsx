@@ -16,14 +16,14 @@ import InputAndButton from "../molecules/InputAndButton";
 import * as S from "./styled";
 
 type SignUpFromPropsType = {
-  checkValiable?: any;
-  submitRegister: any;
+  checkValiable?: any; // TODO
+  submitRegister: any; // TODO
 };
 
 const SignUpForm = (props: SignUpFromPropsType) => {
   const { submitRegister, checkValiable } = props;
   return (
-    <S.SignUpFormContainer>
+    <S.Container>
       <TitleTex>{"회원가입"}</TitleTex>
       <LabelText>{"이름"}</LabelText>
       <Input type={"text"} />
@@ -36,7 +36,7 @@ const SignUpForm = (props: SignUpFromPropsType) => {
       <S.SignUpButtonContainer>
         <Button text={"회원가입"} bgColor={"black"} onClick={submitRegister} />
       </S.SignUpButtonContainer>
-    </S.SignUpFormContainer>
+    </S.Container>
   );
 };
 

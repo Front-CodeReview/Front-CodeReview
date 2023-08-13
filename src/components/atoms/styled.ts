@@ -38,3 +38,30 @@ export const TitleBoldText = styled.div`
   font-weight: 600;
   color: #222;
 `;
+
+// text contents
+export const TextContentsGreatingContainer = styled.div`
+  height: calc(100vh - 200px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: #222;
+  text-align: center;
+`;
+
+export const TextContentsGreatingName = styled.div`
+  font-size: 24px;
+  font-weight: 600;
+  color: blueviolet;
+`;
+
+export const TextContentsGreatingDescription = styled.div`
+  font-size: 24px;
+`;
+
+export const GreetingNameContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+`;

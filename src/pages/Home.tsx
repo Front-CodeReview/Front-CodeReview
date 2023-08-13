@@ -1,5 +1,7 @@
+import Main from "../components/organisms/Main";
+
 const Home = () => {
-  return <div>홈 (루트) 페이지 입니다.</div>;
+  return <Main />;
 };
 
 export default Home;

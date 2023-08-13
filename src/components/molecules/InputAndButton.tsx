@@ -3,7 +3,7 @@ import Input from "../atoms/Input";
 import * as S from "./styled";
 
 type InputAndButtonPropsType = {
-  onClick: any;
+  onClick: any; // TODO
 };
 // 버튼과 함께 쓰는 인풋 컴포넌트
 const InputAndButton = (props: InputAndButtonPropsType) => {
