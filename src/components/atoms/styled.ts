@@ -34,7 +34,7 @@ export const DefaultButton = styled.button<{
   font-weight: 700;
   padding: 1rem;
   border: 0;
-  cursor: pointer;
+  cursor: ${(props) => (props.colortype === "hidden" ? "default" : "pointer")};
   border-radius: 8px;
 `;
 
