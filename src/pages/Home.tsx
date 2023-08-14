@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 // Custom Hooks
 import usePathMove from "@/hooks/usePathMove";
 
@@ -17,8 +19,7 @@ const Wrapper = styled.div`
 const Home = () => {
   const pathMove = usePathMove();
   const userLogout = () => {
-    pathMove("/singup");
-    localStorage.removeItem("join");
+    pathMove("/signup");
   };
 
   return (
