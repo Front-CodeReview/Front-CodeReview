@@ -5,12 +5,20 @@ import React, { useState } from "react";
 import usePathMove from "@/hooks/usePathMove";
 
 // Compoennts
-import Input from "@/common/Input";
-import Button from "@/common/Button";
-import Label from "@/common/Label";
+import AuthInput from "./InputList/AuthInput";
+
+import styled from "styled-components";
 
 // Util
 import validateInputValue from "@/util/validateInputValue";
+import inquireEmailValue from "@/util/inquireEmailValue";
+
+const Form = styled.form`
+  padding-top: 100px;
+  max-width: 300px;
+  margin: 0 auto;
+  position: relative;
+`;
 
 const AuthForm = () => {
   const pathMove = usePathMove();
@@ -46,59 +54,37 @@ const AuthForm = () => {
     const data = validateInputValue(inputValue);
 
     if (data) {
-      localStorage.setItem("join", JSON.stringify(db));
+      const userDatabase = JSON.parse(localStorage.getItem("join") || "[]");
+      userDatabase.push(db);
+      localStorage.setItem("join", JSON.stringify(userDatabase));
       alert("회원가입이 완료 되었습니다.");
       pathMove("/");
     }
   };
 
+  const hasEmailCheck = () => {
+    inquireEmailValue(inputValue.email);
+    // const db = localStorage.getItem("join");
+    // if (db !== null) {
+    //   const dbData = JSON.parse(db);
+    //   dbData.forEach((data: DBtype) => {
+    //     if (data.email === inputValue.email)
+    //       return alert("중복된 이메일이 있습니다.");
+    //   });
+    // }
+    // return alert("사용 가능한 메일 입니다.");
+  };
+
   return (
-    <form
+    <Form
       onSubmit={SingUpUserSubmit}
       style={{ paddingTop: "100px", maxWidth: "300px", margin: "0 auto" }}
     >
-      <Label text="닉네임" />
-      <Input
-        type="text"
-        placeholder="닉네임"
-        required={true}
-        name="name"
-        onChange={SignUpUserInfo}
+      <AuthInput
+        SignUpUserInfo={SignUpUserInfo}
+        hasEmailCheck={hasEmailCheck}
       />
-      <Label text="이메일" />
-      <Input
-        type="text"
-        placeholder="이메일"
-        required={true}
-        name="email"
-        onChange={SignUpUserInfo}
-      />
-      <Label text="비밀번호" />
-      <Input
-        type="password"
-        placeholder="비밀번호"
-        required={true}
-        name="password"
-        onChange={SignUpUserInfo}
-      />
-      <Label text="비밀번호 재확인" />
-      <Input
-        type="password"
-        placeholder="비밀번호 재확인"
-        required={true}
-        name="password2"
-        onChange={SignUpUserInfo}
-      />
-      <Label text="휴대폰 번호" />
-      <Input
-        type="tel"
-        placeholder="휴대폰 번호"
-        required={true}
-        name="tel"
-        onChange={SignUpUserInfo}
-      />
-      <Button type="submit" title="회원가입" />
-    </form>
+    </Form>
   );
 };
 
