@@ -66,10 +66,7 @@ const AuthForm = () => {
   const hasEmailCheck = () => inquireEmailValue(inputValue.email);
 
   return (
-    <Form
-      onSubmit={SingUpUserSubmit}
-      style={{ paddingTop: "100px", maxWidth: "300px", margin: "0 auto" }}
-    >
+    <Form onSubmit={SingUpUserSubmit}>
       <AuthInput
         SignUpUserInfo={SignUpUserInfo}
         hasEmailCheck={hasEmailCheck}
