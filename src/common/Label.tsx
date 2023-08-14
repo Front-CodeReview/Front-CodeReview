@@ -1,7 +1,7 @@
 // CSS In JS
 import styled from "styled-components";
 
-const LabelText = styled.div`
+const LabelText = styled.label`
   color: red;
   font-size: 12px;
   padding-bottom: 5px;
