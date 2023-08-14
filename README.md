@@ -1,27 +1,22 @@
-# React + TypeScript + Vite
+# 인증인가 구현 과제
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 요구사항
 
-Currently, two official plugins are available:
+1. 회원가입, 메인 페이지 구현
+2. `localStorage`에 회원가입 유저 데이터 저장
+3. validation 체크
+   -  이름 2자이상 체크
+   -  비밀번호 특수문자 포함 체크
+   -  이메일 주소 패턴 체크
+   -  이메일 주소 중복 체크
+   -  핸드폰 번호 체크
+4. 그 외 기타 UI 및 라이브러리 자유로이
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## 추가한 스택
+1. `react-hook-form`
+   - 자사에서 사용하던 라이브러리가 좋아서 사용
+   - input value가 바뀔때마다 컴포넌트 렌더링이 되는 부분을 최소화
+2. `아토믹 패턴`
+   - 자사에서 사용하던 UI 패턴 적용
+   - 잘게 쪼개서 재사용할수 있고 작은 단위부터 큰 단위까지 폴더 분류가 잘되어 가독성이 좋음
+   - atoms : 아주 작은 단위(버튼, 인풋 등), molecules : 조금 큰 단위(버튼과 인풋 합친 부분), organisms: 더 큰 레이아웃의 단위(home, signUp 페이지에 들어가는 레이아웃) 으로 구분 

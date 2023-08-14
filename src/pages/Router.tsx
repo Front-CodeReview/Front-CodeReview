@@ -4,19 +4,20 @@ import { Routes, Route } from "react-router-dom";
 
 // Components
 import Home from "./Home";
+import SignUp from "./SignUp";
 
 const Router = () => {
-  const [isInLogged, setisInLogged] = useState(true);
+  const [isInLogged, setIsInLogged] = useState(false);
 
   return (
     <>
       {isInLogged ? (
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home setIsInLogged={setIsInLogged} />} />
         </Routes>
       ) : (
         <Routes>
-          <Route />
+          <Route path="/" element={<SignUp setIsInLogged={setIsInLogged} />} />
         </Routes>
       )}
     </>
