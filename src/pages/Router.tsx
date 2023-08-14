@@ -2,21 +2,30 @@
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
-// Components
+// pages
 import Home from "./Home";
+import SignUp from "./Auth/SignUp";
 
 const Router = () => {
   const [isInLogged, setisInLogged] = useState(true);
+
+  const userLoginLogout = () => setisInLogged((prev) => !prev);
 
   return (
     <>
       {isInLogged ? (
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route
+            path="/"
+            element={<Home userLoginLogout={userLoginLogout} />}
+          />
         </Routes>
       ) : (
         <Routes>
-          <Route />
+          <Route
+            path="/signup"
+            element={<SignUp userLoginLogout={userLoginLogout} />}
+          />
         </Routes>
       )}
     </>
