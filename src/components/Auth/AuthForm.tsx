@@ -62,18 +62,8 @@ const AuthForm = () => {
     }
   };
 
-  const hasEmailCheck = () => {
-    inquireEmailValue(inputValue.email);
-    // const db = localStorage.getItem("join");
-    // if (db !== null) {
-    //   const dbData = JSON.parse(db);
-    //   dbData.forEach((data: DBtype) => {
-    //     if (data.email === inputValue.email)
-    //       return alert("중복된 이메일이 있습니다.");
-    //   });
-    // }
-    // return alert("사용 가능한 메일 입니다.");
-  };
+  // 이메일 중복인증
+  const hasEmailCheck = () => inquireEmailValue(inputValue.email);
 
   return (
     <Form
