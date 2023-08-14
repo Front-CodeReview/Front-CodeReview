@@ -20,7 +20,11 @@ const Form = styled.form`
   position: relative;
 `;
 
-const AuthForm = () => {
+interface Props {
+  userLoginLogout: (prev: boolean) => void;
+}
+
+const AuthForm = (props: Props) => {
   const pathMove = usePathMove();
   const [inputValue, setInputValue] = useState({
     name: "",
@@ -57,8 +61,9 @@ const AuthForm = () => {
       const userDatabase = JSON.parse(localStorage.getItem("join") || "[]");
       userDatabase.push(db);
       localStorage.setItem("join", JSON.stringify(userDatabase));
-      alert("회원가입이 완료 되었습니다.");
       pathMove("/");
+      alert("회원가입이 완료 되었습니다.");
+      props.userLoginLogout(true);
     }
   };
 

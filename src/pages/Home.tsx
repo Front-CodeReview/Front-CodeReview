@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-
 // Custom Hooks
 import usePathMove from "@/hooks/usePathMove";
 
@@ -16,9 +14,15 @@ const Wrapper = styled.div`
   background-color: #fafafa;
 `;
 
-const Home = () => {
+interface Props {
+  userLoginLogout: (prev: boolean) => void;
+}
+
+const Home = (props: Props) => {
   const pathMove = usePathMove();
+
   const userLogout = () => {
+    props.userLoginLogout(false);
     pathMove("/signup");
   };
 
